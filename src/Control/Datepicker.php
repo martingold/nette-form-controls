@@ -15,7 +15,7 @@ class Datepicker extends \Nette\Forms\Controls\TextInput {
     public function __construct(string $label, $format = 'd.m.Y') {
         parent::__construct($label, null);
         $this->format = $format;
-        $this->setDefaultValue(new DateTime);
+        parent::setDefaultValue((new DateTime)->format($this->format));
     }
 
 
