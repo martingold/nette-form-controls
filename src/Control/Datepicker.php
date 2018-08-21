@@ -53,6 +53,7 @@ class Datepicker extends \Nette\Forms\Controls\TextInput {
                 'value'
             );
         }
+        return $this;
     }
 
 }
