@@ -12,10 +12,6 @@ class ButtonRadio extends \Nette\Forms\Controls\RadioList {
                 false => 'Ne',
                 true  => 'Ano',
             ]);
-        if ($items !== null) {
-            $this->setDefaultValue(array_keys($items)[0]);
-        }
-
         $this->setRequired(true);
     }
 
