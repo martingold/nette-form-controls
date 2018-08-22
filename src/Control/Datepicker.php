@@ -45,6 +45,8 @@ class Datepicker extends \Nette\Forms\Controls\TextInput {
     public function setDefaultValue($value): self {
         if ($value instanceof DateTime) {
             parent::setDefaultValue($value->format($this->format));
+        } else if ($value === null) {
+            parent::setDefaultValue('');
         } else {
             throw new \MartinGold\Forms\Exception\InvalidArgumentType(
                 DateTime::class,
