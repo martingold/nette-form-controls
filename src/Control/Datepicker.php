@@ -22,7 +22,7 @@ class Datepicker extends \Nette\Forms\Controls\TextInput {
     public function getValue(): ?DateTime {
         if (strlen($this->value) > 0) {
             $date = DateTime::createFromFormat($this->format, $this->value);
-            return $date;
+            return $date instanceof DateTime ? $date : null;
         }
         return null;
     }
