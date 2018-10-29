@@ -37,23 +37,11 @@ class Datepicker extends \Nette\Forms\Controls\TextInput {
         return $control;
     }
 
-    /**
-     * @param mixed $value
-     * @return \MartinGold\Forms\Control\Datepicker
-     * @throws \MartinGold\Forms\Exception\InvalidArgumentType
-     */
-    public function setDefaultValue($value): self {
+    public function setDefaultValue(?DateTime $value): self {
         if ($value instanceof DateTime) {
             parent::setDefaultValue($value->format($this->format));
-        } else if ($value === null) {
-            parent::setDefaultValue('');
         } else {
-            throw new \MartinGold\Forms\Exception\InvalidArgumentType(
-                DateTime::class,
-                $value,
-                __METHOD__,
-                'value'
-            );
+            parent::setDefaultValue('');
         }
         return $this;
     }
